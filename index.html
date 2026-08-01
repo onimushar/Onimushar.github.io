@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onimusha Digital Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Social Bar / Popunder Script -->
+    <script src="https://pimplehardnesscarnivorous.com/f1/42/a3/f142a3bfc20a95284aeee09a42dcdfe3.js"></script>
+    <script src="https://pimplehardnesscarnivorous.com/ba/ea/ab/baeaab93b5c9385d578b44040ffb99aa.js"></script>
+</head>
+<body>
+
+    <!-- Overlay for Drawer -->
+    <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
+
+    <!-- 1-Time Pop-up Ad Modal -->
+    <div class="ad-modal-overlay" id="adModal">
+        <div class="ad-modal-content">
+            <button class="ad-close-btn" onclick="closeAdModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="ad-body">
+                <i class="fa-solid fa-fire ad-icon"></i>
+                <h2>ONIMUSHA VIP SERVICES</h2>
+                <p>မြန်ဆန်ပြီး ငြိမ်သက်တဲ့ VIP VPN Keys နဲ့ MLBB Diamonds များကို သက်သာသော ဈေးနှုန်းဖြင့် ဝယ်ယူရရှိနိုင်ပါပြီ။</p>
+                <button class="btn btn-ad-buy" onclick="goToHomeFromAd()">
+                    <i class="fa-solid fa-cart-shopping"></i> ဝယ်ယူရန်
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Drawer -->
+    <aside class="drawer" id="drawer">
+        <div class="drawer-header">
+            <h2><i class="fa-solid fa-fire"></i> ONIMUSHA</h2>
+            <button class="close-btn" onclick="toggleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#" class="nav-link active" onclick="switchPage('home', event)">
+                <i class="fa-solid fa-house"></i> Home Page
+            </a>
+            <a href="#" class="nav-link" onclick="switchPage('outline', event)">
+                <i class="fa-solid fa-key"></i> VPN Key
+            </a>
+            <a href="#" class="nav-link" onclick="switchPage('calculator', event)">
+                <i class="fa-solid fa-calculator"></i> ဒေါ်လာ-ကျပ် တွက်စက်
+            </a>
+            <a href="#" class="nav-link" onclick="switchPage('ipchecker', event)">
+                <i class="fa-solid fa-network-wired"></i> Check My IP
+            </a>
+            <a href="#" class="nav-link" onclick="switchPage('adultsites', event)">
+                <i class="fa-solid fa-fire"></i> 18+ Entertainment
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Header Bar -->
+    <header class="app-bar">
+        <button class="menu-btn" onclick="toggleDrawer()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1 id="page-title">Onimusha Digital Page</h1>
+    </header>
+
+    <main class="content">
+
+        <!-- Header Top Ad Banner Container -->
+        <div class="ad-container" style="text-align:center; margin-bottom: 1rem;">
+            <script async="async" data-cfasync="false" src="https://pimplehardnesscarnivorous.com/278fd9acc47dddd6e72fdf33f4f8493c/invoke.js"></script>
+            <div id="container-278fd9acc47dddd6e72fdf33f4f8493c"></div>
+        </div>
+
+        <!-- 1. HOME PAGE -->
+        <section id="page-home" class="page active">
+            <div class="hero">
+                <h2>ONIMUSHA DIGITAL PAGE</h2>
+                <p>MLBB Diamonds & Premium VPN Keys များ ဝယ်ယူနိုင်ပါသည်။</p>
+                
+                <div class="social-links-vertical">
+                    <a href="https://t.me/onimushatech" target="_blank" class="social-btn telegram">
+                        <i class="fa-brands fa-telegram"></i> Telegram Channel
+                    </a>
+                    <a href="https://www.facebook.com/share/197EdBjqKu/" target="_blank" class="social-btn facebook">
+                        <i class="fa-brands fa-facebook"></i> Facebook Page
+                    </a>
+                    <a href="https://connect.viber.com/business/f8c0a834-07ce-11f1-a60a-aa49d1a7a8c8" target="_blank" class="social-btn viber">
+                        <i class="fa-brands fa-viber"></i> Viber Business
+                    </a>
+                </div>
+            </div>
+
+            <!-- 468x60 Banner Ad -->
+            <div class="ad-container" style="text-align:center; margin: 1rem 0;">
+                <script>
+                  atOptions = {
+                    'key' : 'f2bba6648e511e08fa9acd4b354faa5b',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://pimplehardnesscarnivorous.com/f2bba6648e511e08fa9acd4b354faa5b/invoke.js"></script>
+            </div>
+
+            <!-- Price List -->
+            <h3 class="section-title"><i class="fa-solid fa-gem"></i> MLBB Diamonds & Services Price List</h3>
+            <div class="grid" style="margin-bottom: 2rem;">
+                <div class="card price-card">
+                    <i class="fa-solid fa-gem card-icon"></i>
+                    <h3>86 Diamonds</h3>
+                    <p class="price">3,500 MMK</p>
+                </div>
+                
+                <div class="card price-card highlight">
+                    <span class="badge">Popular</span>
+                    <i class="fa-solid fa-crown card-icon"></i>
+                    <h3>Weekly Pass</h3>
+                    <p class="price">5,800 MMK</p>
+                </div>
+
+                <div class="card price-card">
+                    <i class="fa-solid fa-shield-halved card-icon"></i>
+                    <h3>VIP VPN (1 Month)</h3>
+                    <p class="price">5,000 MMK</p>
+                </div>
+            </div>
+
+            <!-- Statistics Dashboard -->
+            <h3 class="section-title"><i class="fa-solid fa-chart-line"></i> Statistics Dashboard</h3>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fa-solid fa-key stat-icon"></i>
+                    <p class="stat-title">Free Keys Available</p>
+                    <h2 class="stat-number">6</h2>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-server stat-icon"></i>
+                    <p class="stat-title">VIP Servers Active</p>
+                    <h2 class="stat-number">5</h2>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-users stat-icon"></i>
+                    <p class="stat-title">Free Key Daily Users</p>
+                    <h2 class="stat-number">300+</h2>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-user-check stat-icon"></i>
+                    <p class="stat-title">Total Active Clients</p>
+                    <h2 class="stat-number">100+</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. VPN KEY PAGE -->
+        <section id="page-outline" class="page">
+            <div class="card tutorial-box">
+                <h3><i class="fa-solid fa-circle-play"></i> VPN အသုံးပြုနည်း Tutorial</h3>
+                <p>Outline VPN အသုံးပြုပုံ ဗီဒီယို ကြည့်ရှုရန် အောက်ပါ Link ကို နှိပ်ပါ -</p>
+                <a href="https://youtube.com/shorts/sFE1Z-fwKg8?si=ED02J1YNtblZ5DA2" target="_blank" class="btn btn-yt">
+                    <i class="fa-brands fa-youtube"></i> Watch Tutorial Shorts
+                </a>
+            </div>
+
+            <h2 class="section-title"><i class="fa-solid fa-key"></i> Free Outline Keys (Daily Updated)</h2>
+            <div id="key-container" class="key-list"></div>
+        </section>
+
+        <!-- 3. CALCULATOR PAGE -->
+        <section id="page-calculator" class="page">
+            <div class="calc-card">
+                <h2>ဒေါ်လာ - ကျပ်ငွေ တွက်စက်</h2>
+                
+                <div class="rate-box">
+                    <label>လက်ရှိ ဒေါ်လာပေါက်ဈေး (၁ ဒေါ်လာ = ကျပ်)</label>
+                    <input type="number" id="rate" value="4500" oninput="calculate('usd')">
+                    <small>* ဈေးကွက်ပေါက်ဈေးအတိုင်း ဤနေရာတွင် ပြောင်းလဲနိုင်ပါသည်</small>
+                </div>
+
+                <div class="input-group">
+                    <label>မြန်မာကျပ်ငွေ (MMK)</label>
+                    <input type="number" id="mmkAmount" placeholder="ကျပ်ငွေ ရိုက်ထည့်ပါ" oninput="calculate('mmk')">
+                </div>
+
+                <div class="input-group">
+                    <label>ဒေါ်လာငွေ (USD)</label>
+                    <input type="number" id="usdAmount" placeholder="ဒေါ်လာပမာဏ ရိုက်ထည့်ပါ" oninput="calculate('usd')">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CHECK MY IP PAGE -->
+        <section id="page-ipchecker" class="page">
+            <h2 class="section-title"><i class="fa-solid fa-network-wired"></i> My IP Address Checker</h2>
+            <div class="card ip-card">
+                <button class="btn" onclick="checkIP()"><i class="fa-solid fa-rotate-right"></i> IP စစ်ဆေးမည်</button>
+                <div class="ip-info" id="ip-info">
+                    <p>IP Address: <span id="ip-address">Loading...</span></p>
+                    <p>Country: <span id="ip-country">-</span></p>
+                    <p>City: <span id="ip-city">-</span></p>
+                    <p>ISP / Network: <span id="ip-isp">-</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 18+ ENTERTAINMENT SITES PAGE -->
+        <section id="page-adultsites" class="page">
+            <h2 class="section-title"><i class="fa-solid fa-fire"></i> 18+ Entertainment & Websites</h2>
+            
+            <!-- Direct Link Sponsored Box -->
+            <div class="card warning-card" style="background: #3b1212; border-color: var(--primary-color);">
+                <h3><i class="fa-solid fa-bolt"></i> VIP Special Direct Access</h3>
+                <p style="margin: 0.5rem 0; font-size: 0.85rem;">အထူးသီးသန့် 18+ Content များကို တိုက်ရိုက်ကြည့်ရှုရန် အောက်ပါ Button ကို နှိပ်ပါ။</p>
+                <a href="https://pimplehardnesscarnivorous.com/iwz0yb0vfj?key=da0e3c7cc3ae9197465b8c72820ecf3c" target="_blank" class="btn" style="background-color: #e02828;">
+                    <i class="fa-solid fa-fire"></i> Direct Access ဝင်ရောက်ရန်
+                </a>
+            </div>
+
+            <div class="card adult-telegram-card">
+                <i class="fa-brands fa-telegram adult-tg-icon"></i>
+                <h3>Onimusha 18+ VIP Telegram Channel</h3>
+                <p>မြန်မာ၊နိုင်ငံတကာ 18+ ဗီဒီယိုများကြည့်ရှုနိုင်ပါသည်။</p>
+                <a href="https://t.me/+OoyMLeyYYQ5iNjA9" target="_blank" class="btn btn-tg-join">
+                    <i class="fa-solid fa-user-plus"></i> Join Telegram Channel
+                </a>
+            </div>
+
+            <div class="card warning-card">
+                <p><i class="fa-solid fa-triangle-exclamation"></i> ဤ Web Link များကို အသုံးပြုရန် VPN ချိတ်ထားရန် လိုအပ်ပါသည်။</p>
+            </div>
+
+            <div class="grid" id="adult-sites-grid"></div>
+        </section>
+
+    </main>
+
+    <!-- Copyright Footer -->
+    <footer class="app-footer">
+        <p>© Copyright 2026 Onimusha Built with <i class="fa-solid fa-heart heart-icon"></i>. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
