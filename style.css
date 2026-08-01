@@ -1,0 +1,620 @@
+:root {
+    --bg-color: #0d0404;
+    --card-bg: #1a0808;
+    --border-color: #3b1212;
+    --primary-color: #ff3b3b;
+    --primary-hover: #e02828;
+    --accent-color: #22c55e;
+    --text-color: #d8c2c2;
+    --text-bright: #ffffff;
+    --drawer-width: 270px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* App Bar */
+.app-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.app-bar h1 {
+    font-size: 1.2rem;
+    color: var(--text-bright);
+}
+
+/* Navigation Drawer */
+.drawer {
+    position: fixed;
+    top: 0;
+    left: calc(-1 * var(--drawer-width));
+    width: var(--drawer-width);
+    height: 100vh;
+    background-color: var(--card-bg);
+    z-index: 100;
+    transition: left 0.3s ease;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer.open {
+    left: 0;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--primary-color);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.drawer-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.nav-link {
+    padding: 0.9rem 1.2rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #2e0c0c;
+    color: var(--primary-color);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 90;
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* Main Content Area */
+.content {
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    flex: 1;
+    width: 100%;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(180deg, #2e0c0c 0%, var(--card-bg) 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.hero h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Social Buttons List */
+.social-links-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1.2rem;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-btn {
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+}
+
+.telegram { background-color: #0088cc; }
+.facebook { background-color: #1877f2; }
+.viber { background-color: #7360f2; }
+
+/* Red & Black Theme Compact Dashboard Cards (2-Column Layout) */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #1c0303 0%, #0d0101 100%);
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(255, 59, 59, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+}
+
+.stat-icon {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.stat-title {
+    color: var(--text-color);
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.stat-number {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-shadow: 0 0 6px rgba(255, 59, 59, 0.3);
+}
+
+/* Section Title & Cards Grid */
+.section-title {
+    color: var(--text-bright);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.9rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.card.highlight {
+    border-color: var(--primary-color);
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Price Card Styling */
+.price-card {
+    padding: 1.2rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+.price-card h3 {
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    color: var(--text-bright);
+}
+
+.price-card .price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-top: 0.4rem;
+    text-shadow: 0 0 8px rgba(255, 59, 59, 0.2);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Footer Section */
+.app-footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-top: 2rem;
+}
+
+.heart-icon {
+    color: var(--primary-color);
+    margin: 0 3px;
+}
+
+/* 18+ Telegram Box */
+.adult-telegram-card {
+    background: linear-gradient(135deg, #1a001a 0%, #330033 100%);
+    border: 1px solid #cc00cc;
+    margin-bottom: 1.5rem;
+}
+
+.adult-tg-icon {
+    font-size: 2.5rem;
+    color: #0088cc;
+    margin-bottom: 0.5rem;
+}
+
+.adult-telegram-card h3 {
+    color: #ff99ff;
+    margin-bottom: 0.5rem;
+}
+
+.adult-telegram-card p {
+    font-size: 0.85rem;
+    color: #e6ccff;
+    margin-bottom: 1rem;
+}
+
+.btn-tg-join {
+    background-color: #0088cc;
+}
+
+.btn-tg-join:hover {
+    background-color: #006699;
+}
+
+/* Tutorial Box */
+.tutorial-box {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.btn-yt {
+    background-color: #ff0000;
+    margin-top: 0.8rem;
+    text-align: center;
+}
+
+/* Key Box */
+.key-card {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.key-box {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.key-box input {
+    flex: 1;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.btn-copy {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Calculator Box */
+.calc-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-bright);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.calc-card h2 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+}
+
+.rate-box {
+    background-color: #290a0a;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.rate-box label {
+    display: block;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+}
+
+.rate-box input {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    border-radius: 6px;
+    outline: none;
+}
+
+.rate-box small {
+    color: #a37272;
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    color: var(--text-bright);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-bright);
+    border-radius: 6px;
+    outline: none;
+}
+
+/* IP Checker Styling */
+.ip-card {
+    text-align: left;
+}
+
+.ip-info {
+    margin-top: 1rem;
+    line-height: 1.8;
+}
+
+.ip-info span {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Adult Sites Styling */
+.warning-card {
+    background-color: #2e0c0c;
+    border-color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: left;
+    color: var(--text-bright);
+}
+
+.warning-card i {
+    color: #ffcc00;
+    margin-right: 6px;
+}
+
+.site-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.site-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text-bright);
+}
+
+/* Pop-up Ad Modal Styling */
+.ad-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.ad-modal-overlay.show {
+    display: flex;
+}
+
+.ad-modal-content {
+    background: linear-gradient(135deg, #2e0c0c 0%, #1a0808 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 1.8rem;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 59, 59, 0.4);
+    animation: popupAnimation 0.3s ease-out;
+}
+
+@keyframes popupAnimation {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.ad-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.ad-body {
+    text-align: center;
+}
+
+.ad-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.ad-body h2 {
+    color: var(--text-bright);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.ad-body p {
+    font-size: 0.88rem;
+    color: var(--text-color);
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.btn-ad-buy {
+    background-color: var(--accent-color);
+    font-size: 1rem;
+    padding: 0.7rem;
+}
+
+.btn-ad-buy:hover {
+    background-color: #16a34a;
+}
+
+/* Ads Container Responsive Fix */
+.ad-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.ad-container iframe {
+    max-width: 100%;
+}
