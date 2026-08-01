@@ -243,7 +243,7 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 0.9rem;
 }
 
@@ -279,7 +279,7 @@ body {
 
 /* Price Card Styling */
 .price-card {
-    padding: 1.2rem 0.8rem;
+    padding: 1rem 0.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -293,13 +293,13 @@ body {
 }
 
 .price-card h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-top: 0.3rem;
     color: var(--text-bright);
 }
 
 .price-card .price {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: var(--primary-color);
     margin-top: 0.4rem;
@@ -609,10 +609,13 @@ body {
     background-color: #16a34a;
 }
 
-/* Ads Container Responsive Fix */
+/* Responsive Ad Container Fixes */
 .ad-container {
     max-width: 100%;
     overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ad-container iframe {
