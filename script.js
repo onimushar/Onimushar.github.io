@@ -1,11 +1,29 @@
 // Outline Keys (၆ ခု) - Germany, Netherlands, Hong Kong, Taiwan, Taiwan 2, Thailand
 const outlineKeys = [
-    { name: "🇩🇪 Germany Onimusha", key: "ss://YWVzLTI1Ni1nY206WEtGS2wyclVMaklwNzQ%3D@185.226.172.8:8008#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20Onimusha" },
-    { name: "🇳🇱 Netherlands Onimusha", key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpZVEV5WkRJME9HUXdNMlptWmpjNFpUZzFaVEJpWVRObFpUWmtaakl4T0RNPQ%3D%3D@141.144.195.131:45819#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%20Onimusha" },
-    { name: "🇭🇰 Hong Kong Onimusha", key: "ss://YWVzLTI1Ni1nY206NzI1NTMzMjBhZTZiY2M4Zg%3D%3D@212.192.13.25:10910#%F0%9F%87%AD%F0%9F%87%B0%20Hong%20Kong%20Onimusha" },
-    { name: "🇹🇼 Taiwan Onimusha", key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpiMWFlMGZjZS05MzQwLTRmMmUtODgyZC1mZGIyMjE4ZTJlMmI%3D@61.231.49.125:50099#%F0%9F%87%B9%F0%9F%87%BC%20Taiwan%20Onimusha" },
-    { name: "🇹🇼 Taiwan 2 Onimusha", key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTczMWVjMy1mOGUxLTQzZjYtOTJjZi0zOTc4ZDE0NzA1YzQ%3D@36.224.191.247:50099#%F0%9F%87%B9%F0%9F%87%BC%20Taiwan%202%20Onimusha" },
-    { name: "🇹🇭 Thailand Onimusha", key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpsaHVVTFJ3TzRzbE02azI2MnBBQzRjYnE1QTFINno4ZWFPSFYyN3ZpN1l3PQ%3D%3D@47.81.56.202:44617#%F0%9F%87%B9%F0%9F%87%AD%20Thailand%20Onimusha" }
+    { 
+        name: "🇹🇼 Taiwan Onimusha", 
+        key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTphOWEwZDA5Mi02ZjBlLTQ3MDEtODFlZS00NTQ2NDNkNmQ1MDY%3D@namrcg001640lrm.cybervena.com:50099#%F0%9F%87%B9%F0%9F%87%BC%20Taiwan%20Onimusha" 
+    },
+    { 
+        name: "🇳🇱 Netherlands Onimusha", 
+        key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo0cUNLUDhEVWR5aXNvejBKd2J1a2xt@creativeboxnl2.zanity.net:5228#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%20Onimusha" 
+    },
+    { 
+        name: "🇷🇺 Russia Onimusha", 
+        key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo2MjRUSG5lSmVYc3hsU2wzRFByN0tS@157.22.240.141:57925#%F0%9F%87%B7%F0%9F%87%BA%20Russia%20Onimusha" 
+    },
+    { 
+        name: "🇩🇪 Germany Onimusha", 
+        key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpPV1ZoWVdNNE9URmxOR0ZoTlRGaU5qWTVORE5sT0RJM1pERTVOamMwWm1FPQ%3D%3D@130.61.102.202:59924#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20Onimusha" 
+    },
+    { 
+        name: "🇹🇭 Thailand Onimusha", 
+        key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpsaHVVTFJ3TzRzbE02azI2MnBBQzRjYnE1QTFINno4ZWFPSFYyN3ZpN1l3PQ%3D%3D@47.81.56.202:44617#%F0%9F%87%B9%F0%9F%87%AD%20Thailand%20Onimusha" 
+    },
+    { 
+        name: "🇸🇬 Singapore Onimusha", 
+        key: "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpZMlF3WlRRME1EWXpPV0ZoTmpBNVltRTBOVFpoTldGa09Ea3pNV05tT0RVPQ%3D%3D@168.107.68.191:56927#%F0%9F%87%B8%F0%9F%87%AC%20Singapore%20Onimusha" 
+    }
 ];
 
 // 18+ Websites List
