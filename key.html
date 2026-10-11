@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONIMUSHA - Free Daily VPN Keys</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Pyidaungsu & Inter -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Pyidaungsu:wght@400;600;700&display=swap">
+
+  <style>
+    :root {
+      --bg: #030712;
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --cyan: #06b6d4;
+      --green: #10b981;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Pyidaungsu', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background Canvas Dynamic Glow */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 16px 40px 16px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    /* Header Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--cyan), var(--primary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: linear-gradient(to right, #ffffff, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    /* Status Banner */
+    .status-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .status-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--green);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .status-title {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .status-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .btn-copy-all {
+      background: linear-gradient(135deg, var(--cyan), var(--primary));
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-copy-all:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+    }
+
+    /* Section Headers */
+    .section-header {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+
+    .section-header i {
+      color: var(--cyan);
+    }
+
+    /* Keys List */
+    .keys-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .key-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .key-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .key-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .key-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .key-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .key-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .key-val {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 3px;
+    }
+
+    .copy-btn {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .key-card:hover .copy-btn {
+      background: var(--cyan);
+      color: #000;
+      border-color: var(--cyan);
+    }
+
+    /* Social Links Card */
+    .social-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .social-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .social-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .social-icon.telegram { background: #229ed9; }
+    .social-icon.facebook { background: #1877f2; }
+
+    .social-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .social-info p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    @media (max-width: 500px) {
+      .social-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Guide Section */
+    .guide-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #e5e7eb;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: rgba(6, 182, 212, 0.2);
+      color: var(--cyan);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Video Container */
+    .video-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .video-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .video-icon {
+      width: 40px;
+      height: 40px;
+      background: #ff0000;
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .video-text h4 {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .video-text p {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .btn-watch {
+      background: #ff0000;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-watch:hover {
+      background: #cc0000;
+      transform: translateY(-2px);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #10b981;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: 1000;
+      opacity: 0;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p span {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="container">
+    <!-- Navigation Header -->
+    <header>
+      <a href="https://onimushar.github.io/" class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <div class="brand-text">
+          <h1>ONIMUSHA</h1>
+          <span>Free Daily Keys</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Home Link Button -->
+        <a href="https://onimushar.github.io/" class="home-btn">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+      </div>
+    </header>
+
+    <!-- Top Status / Action Bar -->
+    <div class="status-card">
+      <div class="status-info">
+        <div class="live-dot"></div>
+        <div>
+          <div class="status-title">Daily Keys Updated</div>
+          <div class="status-desc" id="key-count-text">5 Active VPN Keys Available</div>
+        </div>
+      </div>
+      <button class="btn-copy-all" onclick="copyAllKeys()">
+        <i class="fa-solid fa-copy"></i> Copy All Keys
+      </button>
+    </div>
+
+    <!-- VPN Keys Section -->
+    <div class="section-header">
+      <i class="fa-solid fa-bolt"></i> Tap Key Card to Copy
+    </div>
+
+    <div class="keys-list" id="keys-container">
+      <!-- Dynamic Key Cards rendering from JS -->
+    </div>
+
+    <!-- Social Links Section -->
+    <div class="section-header">
+      <i class="fa-solid fa-share-nodes"></i> Connect With Us
+    </div>
+
+    <div class="social-section">
+      <!-- Telegram Card -->
+      <a href="https://t.me/onimushatech" target="_blank" class="social-card">
+        <div class="social-icon telegram">
+          <i class="fa-brands fa-telegram"></i>
+        </div>
+        <div class="social-info">
+          <h4>Telegram Channel</h4>
+          <p>Join for instant updates</p>
+        </div>
+      </a>
+
+      <!-- Facebook Card -->
+      <a href="https://www.facebook.com/share/1KB25GjZi4/" target="_blank" class="social-card">
+        <div class="social-icon facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+        <div class="social-info">
+          <h4>Facebook Page</h4>
+          <p>Follow our official page</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Usage Guide Section -->
+    <div class="guide-card">
+      <div class="section-header" style="margin-bottom: 16px;">
+        <i class="fa-solid fa-circle-info"></i> VPN Key ထည့်သွင်းအသုံးပြုနည်း
+      </div>
+
+      <div class="guide-steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>အထက်ပါ VPN Key များထဲမှ ကြိုက်နှစ်သက်ရာ Key တစ်ခုကို <b>တစ်ချက်နှိပ်၍ Copy ယူပါ</b>။</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>မိမိအသုံးပြုသော VPN App (ဥပမာ - V2rayNG / Streisand / Shadowrocket) သို့ ဝင်ပါ။</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>ညာဘက်အပေါ်ထောင့်ရှိ <b>+ (Plus)</b> လက္ခဏာကို နှိပ်ပြီး <b>"Import config from Clipboard"</b> ကို ရွေးချယ်ပါ။</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div>Key ရောက်ရှိသွားပါက Connect ပြုလုပ်ပြီး လွတ်လပ်စွာ အသုံးပြုနိုင်ပါပြီ။</div>
+        </div>
+      </div>
+
+      <!-- Tutorial Video Link Card -->
+      <div class="video-card">
+        <div class="video-info">
+          <div class="video-icon">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <div class="video-text">
+            <h4>ဗီဒီယိုကြည့်ပြီး ကြည့်ရှုနည်း</h4>
+            <p>VPN Key ထည့်နည်း Short Video ကို ကြည့်နိုင်ပါတယ်</p>
+          </div>
+        </div>
+        <a href="https://youtube.com/shorts/sFE1Z-fwKg8?feature=share" target="_blank" class="btn-watch">
+          <i class="fa-solid fa-play"></i> Watch Video
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 <span>ONIMUSHA</span>. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i> <span id="toast-msg">Copied to clipboard!</span>
+  </div>
+
+  <!-- JavaScript Section -->
+  <script>
+    /* ======================================================
+       DAILY VPN KEYS CONFIGURATION
+       တရက်တခါ Key များကို ပြောင်းချင်ပါက အောက်ပါ vpnKeys array ထဲတွင်
+       စကားလုံးများကို လွယ်ကူစွာ ပြင်ဆင်နိုင်ပါသည်။
+    ====================================================== */
+    const vpnKeys = [
+      "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo5ZXBwM285bmc4ZWo1OXV2@45.128.12.20:14249#%F0%9F%87%B8%F0%9F%87%AC%20Singapore",
+      "vless://6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2@139.162.27.96:2096?path=%2Ffree-server.techsonic.dev&security=tls&encryption=none&insecure=0&host=free-server.techsonic.dev&fp=chrome&type=ws&allowInsecure=0&sni=free-server.techsonic.dev#%F0%9F%87%B8%F0%9F%87%AC-Singapore-",
+      "vless://f8681dba-d368-4bab-a3c2-a8dc712ba368@142.91.106.31:43000?security=reality&encryption=none&pbk=onJvbzSx_vZUyycafvPuhsiSQsr9tw4zotyVMSWCvm4&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sid=8d66106f#JP%F0%9F%87%AF%F0%9F%87%B5",
+      "ss://YWVzLTEyOC1nY206ZTcyYTc5M2Q2MzRkOTk3NDhjZjkwOGQyMWZkOTM1YzM@205.209.126.205:19049#%F0%9F%87%BA%F0%9F%87%B8%20United%20States",
+      "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTY4ZTMyZi04MDE1LTRmMzctOTA4Mi03MGU4YjBiNTgwNDM@15.164.245.92:8443#%F0%9F%87%B0%F0%9F%87%B7%20Korea"
+    ];
+
+    // Render Keys to DOM
+    function renderKeys() {
+      const container = document.getElementById('keys-container');
+      container.innerHTML = '';
+
+      vpnKeys.forEach((key, index) => {
+        let keyName = `Server Key #${index + 1}`;
+        if (key.includes('#')) {
+          try {
+            keyName = decodeURIComponent(key.split('#')[1]);
+          } catch(e) {
+            keyName = key.split('#')[1];
+          }
+        }
+
+        const card = document.createElement('div');
+        card.className = 'key-card';
+        card.onclick = () => copySingleKey(key, keyName);
+
+        card.innerHTML = `
+          <div class="key-left">
+            <div class="key-icon-wrapper">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="key-info">
+              <div class="key-name">${keyName}</div>
+              <div class="key-val">${key}</div>
+            </div>
+          </div>
+          <div class="copy-btn">
+            <i class="fa-regular fa-copy"></i>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      document.getElementById('key-count-text').innerText = `${vpnKeys.length} Active VPN Keys Available`;
+    }
+
+    // Copy Single Key
+    function copySingleKey(keyText, keyName) {
+      navigator.clipboard.writeText(keyText).then(() => {
+        showToast(`Copied: ${keyName}`);
+      }).catch(() => {
+        const textArea = document.createElement("textarea");
+        textArea.value = keyText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showToast(`Copied: ${keyName}`);
+      });
+    }
+
+    // Copy All Keys
+    function copyAllKeys() {
+      const allKeysText = vpnKeys.join('\n\n');
+      navigator.clipboard.writeText(allKeysText).then(() => {
+        showToast("Copied all 5 VPN keys!");
+      }).catch(() => {
+        const textArea = document.createElement("textarea");
+        textArea.value = allKeysText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showToast("Copied all 5 VPN keys!");
+      });
+    }
+
+    // Toast Alert Trigger
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // Background Canvas Particles
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.alpha = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > width) this.speedX *= -1;
+        if (this.y < 0 || this.y > height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = `rgba(6, 182, 212, ${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 40; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Initial Render
+    renderKeys();
+  </script>
+</body>
+</html>
