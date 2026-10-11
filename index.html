@@ -1,0 +1,373 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onimusha — Tech & Digital Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            bg: '#0a0d14',
+                            card: '#121824',
+                            accent: '#00f2fe',
+                            violet: '#7928ca',
+                            pink: '#ff0080',
+                            glow: 'rgba(0, 242, 254, 0.15)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0d14;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(18, 24, 36, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(20, 28, 42, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.25);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #7928ca 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0d14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-gray-200 antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- Interactive Background Canvas -->
+    <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Glowing Background Orbs -->
+    <div class="fixed top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="fixed bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- Header / Navigation -->
+        <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-black font-black text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-300">
+                        O
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-wider text-white font-mono uppercase">ONIMUSHA</span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400 ml-1 animate-pulse"></span>
+                    </div>
+                </a>
+
+                <!-- System Operational Badge -->
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-emerald-500/30 text-xs font-mono text-emerald-400">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>ACTIVE PLATFORM</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-20">
+
+            <section class="text-center space-y-6 pt-6 pb-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-mono tracking-wide">
+                    <i class="fa-solid fa-bolt text-yellow-400"></i>
+                    <span>PREMIUM DIGITAL HUB</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
+                    Welcome to <span class="gradient-text">Onimusha</span>
+                </h1>
+
+                <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                    Connecting you directly with fast, secure, and modern digital services. Touch base with us on our official channels below.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <a href="#contact-channels" class="px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold flex items-center gap-3 transition-all hover:shadow-lg hover:shadow-cyan-500/25">
+                        <span>Get Connected</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </section>
+
+            <section id="contact-channels" class="space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-wide font-mono">
+                        <i class="fa-solid fa-link text-cyan-400 mr-2"></i>OFFICIAL CONNECT CHANNELS
+                    </h2>
+                    <p class="text-slate-400 text-sm">Tap or copy the links below to connect directly with our team</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                    <!-- Telegram Card -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6 group border-t-2 border-t-sky-500/50">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-16 h-16 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-3xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-telegram"></i>
+                                </div>
+                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/30">Primary Channel</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">Telegram Channel</h3>
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">Join our Telegram channel for instant updates, support, and direct community service.</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 pt-2">
+                            <a href="https://t.me/onimushatech" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold flex items-center justify-center gap-2 transition-colors">
+                                <span>Open Telegram</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                            <button onclick="copyToClipboard('https://t.me/onimushatech', 'Telegram link copied to clipboard!')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 text-xs font-mono flex items-center justify-center gap-2 border border-slate-700/50 hover:text-white transition-colors cursor-pointer">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>Copy Telegram Link</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Facebook Card -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6 group border-t-2 border-t-blue-500/50">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-3xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">Official Page</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Facebook Page</h3>
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">Visit our official Facebook page for announcements, news, and direct messenger queries.</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 pt-2">
+                            <a href="https://www.facebook.com/share/1KB25GjZi4/" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold flex items-center justify-center gap-2 transition-colors">
+                                <span>Visit Facebook</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                            <button onclick="copyToClipboard('https://www.facebook.com/share/1KB25GjZi4/', 'Facebook link copied to clipboard!')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 text-xs font-mono flex items-center justify-center gap-2 border border-slate-700/50 hover:text-white transition-colors cursor-pointer">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>Copy Facebook Link</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-wide font-mono">
+                        OUR OFFERINGS & FEATURES
+                    </h2>
+                    <p class="text-slate-400 text-sm">Designed for high performance and total privacy</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">VPN Keys & Access</h4>
+                        <p class="text-slate-400 text-sm">Fast, reliable, and secure encrypted tunneling configs.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">MLBB Diamonds</h4>
+                        <p class="text-slate-400 text-sm">Instant game top-ups with seamless transaction delivery.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">High-Speed Data</h4>
+                        <p class="text-slate-400 text-sm">Optimized connections engineered for speed and stability.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-xl">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">Direct Support</h4>
+                        <p class="text-slate-400 text-sm">Personalized customer assistance available on social channels.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="w-full glass-panel border-t border-slate-800/80 mt-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-400">© 2026 <strong class="text-white">ONIMUSHA</strong>. All rights reserved.</span>
+                </div>
+                <div class="flex items-center gap-6 text-slate-400 text-sm">
+                    <span class="font-mono text-xs text-slate-500">v2.5.0-release</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        // Copy to clipboard helper
+        function copyToClipboard(text, message) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast(message || 'Link copied to clipboard!');
+        }
+
+        // Toast notification system
+        function showToast(text) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel px-4 py-3 rounded-xl border border-cyan-500/40 text-white text-sm font-mono flex items-center gap-3 shadow-lg transform transition-all duration-300 translate-y-4 opacity-0 pointer-events-auto';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-cyan-400"></i> <span>${text}</span>`;
+            
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-4', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Animated Particle Background Canvas
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.alpha = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(0, 242, 254, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 15000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.onload = function() {
+            initParticles();
+            animateParticles();
+        };
+    </script>
+</body>
+</html>
+```
