@@ -476,6 +476,133 @@
       transform: translateY(-2px);
     }
 
+    /* Pop-up Ad Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: rgba(17, 24, 39, 0.95);
+      border: 1px solid var(--cyan);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--cyan);
+      color: #000;
+    }
+
+    .modal-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-title i {
+      color: var(--cyan);
+    }
+
+    .package-group {
+      margin-bottom: 16px;
+    }
+
+    .package-group h5 {
+      font-size: 12px;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .package-item {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .package-item span:last-child {
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .modal-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--cyan), var(--primary));
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 16px;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+    }
+
     /* Toast Notification */
     .toast {
       position: fixed;
@@ -493,7 +620,7 @@
       gap: 8px;
       box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
       transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      z-index: 1000;
+      z-index: 3000;
       opacity: 0;
     }
 
@@ -642,6 +769,58 @@
     </footer>
   </div>
 
+  <!-- Pop-up Ad / Packages Modal -->
+  <div class="modal-overlay" id="adModal">
+    <div class="modal-card">
+      <div class="modal-close" onclick="closeModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+
+      <div class="modal-title">
+        <i class="fa-solid fa-bullhorn"></i> Special Packages & Promos
+      </div>
+
+      <!-- Data Package -->
+      <div class="package-group">
+        <h5>💾 Data Package (2 Device 1 Month)</h5>
+        <div class="package-item">
+          <span>• 50 GB</span>
+          <span>4,000 ကျပ်</span>
+        </div>
+        <div class="package-item">
+          <span>• 100 GB</span>
+          <span>7,000 ကျပ်</span>
+        </div>
+        <div class="package-item">
+          <span>• 200 GB</span>
+          <span>13,000 ကျပ်</span>
+        </div>
+      </div>
+
+      <!-- Device Package -->
+      <div class="package-group">
+        <h5>📱 Device Package (1 Month)</h5>
+        <div class="package-item">
+          <span>• ဖုန်း 1 လုံး</span>
+          <span>10,000 ကျပ်</span>
+        </div>
+        <div class="package-item">
+          <span>• ဖုန်း 2 လုံး</span>
+          <span>15,000 ကျပ်</span>
+        </div>
+        <div class="package-item">
+          <span>• ဖုန်း 3 လုံး</span>
+          <span>18,000 ကျပ်</span>
+        </div>
+      </div>
+
+      <!-- Telegram Purchase Link -->
+      <a href="https://t.me/onimushatech" target="_blank" class="modal-btn">
+        <i class="fa-brands fa-telegram"></i> ဝယ်ယူရန် ဆက်သွယ်မည်
+      </a>
+    </div>
+  </div>
+
   <!-- Toast Element -->
   <div class="toast" id="toast">
     <i class="fa-solid fa-circle-check"></i> <span id="toast-msg">Copied to clipboard!</span>
@@ -651,8 +830,6 @@
   <script>
     /* ======================================================
        DAILY VPN KEYS CONFIGURATION
-       တရက်တခါ Key များကို ပြောင်းချင်ပါက အောက်ပါ vpnKeys array ထဲတွင်
-       စကားလုံးများကို လွယ်ကူစွာ ပြင်ဆင်နိုင်ပါသည်။
     ====================================================== */
     const vpnKeys = [
       "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo5ZXBwM285bmc4ZWo1OXV2@45.128.12.20:14249#%F0%9F%87%B8%F0%9F%87%AC%20Singapore",
@@ -679,7 +856,7 @@
 
         const card = document.createElement('div');
         card.className = 'key-card';
-        card.onclick = () => copySingleKey(key, keyName);
+        card.onclick = () => copyTextToClipboard(key, `Copied: ${keyName}`);
 
         card.innerHTML = `
           <div class="key-left">
@@ -702,35 +879,50 @@
       document.getElementById('key-count-text').innerText = `${vpnKeys.length} Active VPN Keys Available`;
     }
 
-    // Copy Single Key
-    function copySingleKey(keyText, keyName) {
-      navigator.clipboard.writeText(keyText).then(() => {
-        showToast(`Copied: ${keyName}`);
-      }).catch(() => {
-        const textArea = document.createElement("textarea");
-        textArea.value = keyText;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        showToast(`Copied: ${keyName}`);
-      });
+    // Universal Robust Copy Function (Works on Mobile & Desktop)
+    function copyTextToClipboard(text, successMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMsg);
+        }).catch(() => {
+          fallbackCopyText(text, successMsg);
+        });
+      } else {
+        fallbackCopyText(text, successMsg);
+      }
     }
 
-    // Copy All Keys
+    // Fallback Copy Method using temporary textarea element
+    function fallbackCopyText(text, successMsg) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showToast(successMsg);
+        } else {
+          showToast("Copy failed. Please try again.");
+        }
+      } catch (err) {
+        showToast("Browser does not support copying.");
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    // Copy All Keys Function
     function copyAllKeys() {
       const allKeysText = vpnKeys.join('\n\n');
-      navigator.clipboard.writeText(allKeysText).then(() => {
-        showToast("Copied all 5 VPN keys!");
-      }).catch(() => {
-        const textArea = document.createElement("textarea");
-        textArea.value = allKeysText;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        showToast("Copied all 5 VPN keys!");
-      });
+      copyTextToClipboard(allKeysText, "Copied all 5 VPN keys!");
     }
 
     // Toast Alert Trigger
@@ -743,7 +935,38 @@
       }, 2500);
     }
 
-    // Background Canvas Particles
+    /* ======================================================
+       POP-UP MODAL FUNCTIONS (Every 5 Seconds)
+    ====================================================== */
+    function openModal() {
+      document.getElementById('adModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('adModal').classList.remove('active');
+    }
+
+    // Website ဝင်လာပြီးတိုင်း ၅ စက္ကန့်တခါ Pop-up အလိုအလျောက် ထပ်ပေါ်လာစေရန် (Interval - 5000ms)
+    window.addEventListener('load', () => {
+      // ပထမဆုံးအကြိမ် ဝင်လာပြီး ၁ စက္ကန့်အကြာမှာ ချက်ချင်းပြမယ်
+      setTimeout(openModal, 1000);
+
+      // ထို့နောက် ၅ စက္ကန့်တိုင်း တခါစီ ထပ်ပေါ်လာစေမယ်
+      setInterval(() => {
+        openModal();
+      }, 5000);
+    });
+
+    // Modal ရဲ့ အပြင်ဘက်အမည်းရောင်နေရာကို နှိပ်လျှင် ပိတ်သွားစေရန်
+    document.getElementById('adModal').addEventListener('click', (e) => {
+      if (e.target.id === 'adModal') {
+        closeModal();
+      }
+    });
+
+    /* ======================================================
+       BACKGROUND CANVAS PARTICLES
+    ====================================================== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let width, height;
