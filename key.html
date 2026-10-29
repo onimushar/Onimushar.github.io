@@ -832,11 +832,11 @@
        DAILY VPN KEYS CONFIGURATION
     ====================================================== */
     const vpnKeys = [
-      "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo5ZXBwM285bmc4ZWo1OXV2@45.128.12.20:14249#%F0%9F%87%B8%F0%9F%87%AC%20Singapore",
-      "vless://6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2@139.162.27.96:2096?path=%2Ffree-server.techsonic.dev&security=tls&encryption=none&insecure=0&host=free-server.techsonic.dev&fp=chrome&type=ws&allowInsecure=0&sni=free-server.techsonic.dev#%F0%9F%87%B8%F0%9F%87%AC-Singapore-",
-      "vless://f8681dba-d368-4bab-a3c2-a8dc712ba368@142.91.106.31:43000?security=reality&encryption=none&pbk=onJvbzSx_vZUyycafvPuhsiSQsr9tw4zotyVMSWCvm4&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sid=8d66106f#JP%F0%9F%87%AF%F0%9F%87%B5",
-      "ss://YWVzLTEyOC1nY206ZTcyYTc5M2Q2MzRkOTk3NDhjZjkwOGQyMWZkOTM1YzM@205.209.126.205:19049#%F0%9F%87%BA%F0%9F%87%B8%20United%20States",
-      "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTY4ZTMyZi04MDE1LTRmMzctOTA4Mi03MGU4YjBiNTgwNDM@15.164.245.92:8443#%F0%9F%87%B0%F0%9F%87%B7%20Korea"
+      "Vmess://eyJhZGQiOiJ3am9mSHNRdEV1RXl3eEVxLnYuM2Rucy52aXAiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6Indqb2ZIc1F0RXVFeXd4RXEudi4zZG5zLnZpcCIsImlkIjoiYTlmNGRlOGItNjhmMS00NGI2LWI2YTItMWRiNjA5NDA1MDNhIiwiaW5zZWN1cmUiOiIwIiwibmV0Ijoid3MiLCJwYXRoIjoiL3dzLXZtZXNzIiwicGNzIjoiIiwicG9ydCI6IjQ0MyIsInBzIjoiU2luZ2Fwb3JlIPCfh7jwn4esIG9uaW11c2hhIiwic2N5IjoiYXV0byIsInNuaSI6Indqb2ZIc1F0RXVFeXd4RXEudi4zZG5zLnZpcCIsInRscyI6InRscyIsInR5cGUiOiItLS0iLCJ2IjoiMiIsInZjbiI6IiJ9",
+      "vmess://eyJhZGQiOiI4LjIxOS45Ny4xNyIsImFpZCI6IjAiLCJhbHBuIjoiIiwiZnAiOiIiLCJob3N0Ijoid2pvZmhzcXRldWV5d3hlcS52LjNkbnMudmlwIiwiaWQiOiJhOWY0ZGU4Yi02OGYxLTQ0YjYtYjZhMi0xZGI2MDk0MDUwM2EiLCJpbnNlY3VyZSI6IjAiLCJuZXQiOiJ3cyIsInBhdGgiOiIvd3Mtdm1lc3MiLCJwY3MiOiIiLCJwb3J0IjoiNDQzIiwicHMiOiJTaW5nYXBvcmUg8J+HuPCfh6wgb25pbXVzaGEiLCJzY3kiOiJhdXRvIiwic25pIjoid2pvZmhzcXRldWV5d3hlcS52LjNkbnMudmlwIiwidGxzIjoidGxzIiwidHlwZSI6Ii0tLSIsInYiOiIyIiwidmNuIjoiIn0=",
+      "ss://YWVzLTI1Ni1nY206WlJwZ2FCZUd4dEVOSVhndmhwa1pCS3o5R25XUlMyZFljeDlPK2EyaXdOND0@185.176.204.18:19999#%F0%9F%87%A9%F0%9F%87%AAGermany%20onimusha",
+      "ss://YWVzLTI1Ni1nY206WlJwZ2FCZUd4dEVOSVhndmhwa1pCS3o5R25XUlMyZFljeDlPK2EyaXdOND0@185.176.206.9:19999#%F0%9F%87%AC%F0%9F%87%A7United%20Kingdom%20onimusha",
+      "ss://YWVzLTI1Ni1nY206WlJwZ2FCZUd4dEVOSVhndmhwa1pCS3o5R25XUlMyZFljeDlPK2EyaXdOND0@202.50.253.99:19999#%F0%9F%87%AE%F0%9F%87%B9Italy%20onimusha"
     ];
 
     // Render Keys to DOM
@@ -851,6 +851,18 @@
             keyName = decodeURIComponent(key.split('#')[1]);
           } catch(e) {
             keyName = key.split('#')[1];
+          }
+        } else if (key.toLowerCase().startsWith('vmess://')) {
+          try {
+            // Decode vmess base64 JSON payload to extract ps (remark/name)
+            const base64Payload = key.substring(8);
+            const jsonString = atob(base64Payload);
+            const obj = JSON.parse(jsonString);
+            if (obj.ps) {
+              keyName = obj.ps;
+            }
+          } catch(e) {
+            keyName = `Vmess Server #${index + 1}`;
           }
         }
 
