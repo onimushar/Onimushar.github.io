@@ -863,11 +863,11 @@
        DAILY VPN KEYS CONFIGURATION (Updated)
     ====================================================== */
     const vpnKeys = [
-      "ss://MjAyMi1ibGFrZTMtYWVzLTI1Ni1nY206Y1JyUEgraCt6UlZ2TWFvaXVnd1NLRVpQU2RrR05mQ3Jjd3V3bVdmaHdJVT06TExTdEM2TjNQMGNnMjk1eVBQS1FrdGpOU2RwZE93NXFUUGU5Q0RHK3I4VT0@157.85.101.78:5675#THAI%F0%9F%87%B9%F0%9F%87%AD%20ONIMUSHA",
-      "vmess://eyJhZGQiOiIxNDEuMTEuMTM5LjEwMiIsImFpZCI6IjAiLCJhbHBuIjoiIiwiZnAiOiIiLCJob3N0IjoiIiwiaWQiOiIwODFkYmY1YS1kOGI2LTQwYzgtOTZmOC0zYzRjYTlmNTA0NDIiLCJpbnNlY3VyZSI6IjAiLCJuZXQiOiJ0Y3AiLCJwYXRoIjoiIiwicGNzIjoiIiwicG9ydCI6IjMyNTE1IiwicHMiOiJKUPCfh6/wn4e1IHwgT25pbXVzaGEiLCJzY3kiOiJhdXRvIiwic25pIjoiIiwidGxzIjoiIiwidHlwZSI6Im5vbmUiLCJ2IjoiMiIsInZjbiI6IiJ9",
-      "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNToxMjI0Mg@115.161.136.145:10099#%F0%9F%87%B0%F0%9F%87%B7%20South%20Korea%20Onimusha",
-      "ss://YWVzLTI1Ni1nY206WlJwZ2FCZUd4dEVOSVhndmhwa1pCS3o5R25XUlMyZFljeDlPK2EyaXdOND0@193.108.119.2:19999#%F0%9F%87%A9%F0%9F%87%AA%20%20Germany%20Onimusha",
-      "ss://YWVzLTI1Ni1nY206WlJwZ2FCZUd4dEVOSVhndmhwa1pCS3o5R25XUlMyZFljeDlPK2EyaXdOND0@62.93.179.117:19999#%F0%9F%87%AA%F0%9F%87%B8%20Spain%20Onimusha"
+      "ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6YzExSk1mQ01RM1k0YUdsaE1YNUxyTXBNMTN1dncrVVZiakdmSFArZUtrWT0@168.138.177.98:56927#%F0%9F%87%B8%F0%9F%87%AC-Singapore-%20Onimusha",
+      "vless://0259e5aa-c188-4334-b204-32cd5ea859f6@135.136.183.53:443?security=reality&encryption=none&pbk=56r4YuaW-BUEapWGlOvv-QX75OgLNP8KuE_Z1bBxO1g&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=dubai-cdn-keno.keno.su&sid=47912f9d36a0a52b#United%20Arab%20Emirates%20.%20Onimusha",
+      "vless://12a4f736-2238-49ee-831f-5516f15cc951@2.26.204.46:31001?security=reality&encryption=none&pbk=lzpIiMqHXas_qayw-HvrySb78FNkVroBOqniwqPXPzY&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=mensura.cdn-apple.com&sid=39793bc4708abbbb#Hong%20Kong%20Onimusha",
+      "ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6OFNyQVkya0VrOVVIS1NnVUpqUXZmZFRKUDlvUGxTUFZQMXdJQ0w3bjNoaz0@43.106.81.90:443#%F0%9F%87%B8%F0%9F%87%AC-%20Singapore%20Onimusha",
+      "ss://YWVzLTI1Ni1nY206WlJwZ2FCZUd4dEVOSVhndmhwa1pCS3o5R25XUlMyZFljeDlPK2EyaXdOND0@38.109.228.110:19999#%F0%9F%87%AB%F0%9F%87%B7%20France%20Onimusha"
     ];
 
     // Render Keys to DOM
@@ -989,10 +989,8 @@
     }
 
     window.addEventListener('load', () => {
-      // ဝင်လာပြီး ၁ စက္ကန့်အကြာတွင် ပထမအကြိမ် ပေါ်လာမည်
       setTimeout(openModal, 1000);
 
-      // ထို့နောက် ၈ စက္ကန့် (8000ms) တိုင်း တစ်ကြိမ်စီ ထပ်ပေါ်လာမည်
       setInterval(() => {
         openModal();
       }, 8000);
